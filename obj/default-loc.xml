@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<Locations >
+  <Project>
+    <vfs_file>D:\Pulpit\ada\default.gpr</vfs_file>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>D:\Pulpit\ada\default.gpr</vfs_project>
+      <vfs_file>D:\Pulpit\ada\src\main.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 39" line=" 23" >
+      <vfs_project>D:\Pulpit\ada\default.gpr</vfs_project>
+      <vfs_file>D:\Pulpit\ada\src\simulation.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 25" line=" 32" >
+      <vfs_project>D:\Pulpit\ada\default.gpr</vfs_project>
+      <vfs_file>D:\Pulpit\ada\src\simulation.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 51" line=" 34" >
+      <vfs_project>D:\Pulpit\ada\default.gpr</vfs_project>
+      <vfs_file>D:\Pulpit\ada\src\simulation.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 24" line=" 38" >
+      <vfs_project>D:\Pulpit\ada\default.gpr</vfs_project>
+      <vfs_file>D:\Pulpit\ada\src\simulation.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 11" line=" 128" >
+      <vfs_project>D:\Pulpit\ada\default.gpr</vfs_project>
+      <vfs_file>D:\Pulpit\ada\src\simulation.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 25" line=" 38" >
+      <vfs_project>D:\Pulpit\ada\default.gpr</vfs_project>
+      <vfs_file>D:\Pulpit\ada\src\simulation.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 23" line=" 51" >
+      <vfs_project>D:\Pulpit\ada\default.gpr</vfs_project>
+      <vfs_file>D:\Pulpit\ada\src\simulation.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 64" line=" 41" >
+      <vfs_project>D:\Pulpit\ada\default.gpr</vfs_project>
+      <vfs_file>D:\Pulpit\ada\src\simulation.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 40" line=" 42" >
+      <vfs_project>D:\Pulpit\ada\default.gpr</vfs_project>
+      <vfs_file>D:\Pulpit\ada\src\simulation.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 6" line=" 50" >
+      <vfs_project>D:\Pulpit\ada\default.gpr</vfs_project>
+      <vfs_file>D:\Pulpit\ada\src\simulation.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 13" line=" 72" >
+      <vfs_project>D:\Pulpit\ada\default.gpr</vfs_project>
+      <vfs_file>D:\Pulpit\ada\src\simulation.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 32" line=" 75" >
+      <vfs_project>D:\Pulpit\ada\default.gpr</vfs_project>
+      <vfs_file>D:\Pulpit\ada\src\simulation.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 12" line=" 106" >
+      <vfs_project>D:\Pulpit\ada\default.gpr</vfs_project>
+      <vfs_file>D:\Pulpit\ada\src\simulation.adb</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 50" line=" 108" >
+      <vfs_project>D:\Pulpit\ada\default.gpr</vfs_project>
+      <vfs_file>D:\Pulpit\ada\src\simulation.adb</vfs_file>
+    </file_marker>
+  </Project>
+</Locations>
