@@ -90,8 +90,8 @@ procedure Simulation is
       Consumption: Integer;
       Assembly_Type: Integer;
       Consumer_Name: constant array (1 .. Number_Of_Consumers)
-	of String(1 .. 9)
-	:= ("Consumer1", "Consumer2");
+	of String(1 .. 12)
+	:= ("Consumer n.1", "Consumer n.2");
    begin
       accept Start(Consumer_Number: in Consumer_Type;
 		     Consumption_Time: in Integer) do
@@ -107,7 +107,7 @@ procedure Simulation is
 	 -- take an assembly for consumption
     B.Deliver(Assembly_Type, Assembly_Number);
      if Assembly_Number /= 0 then
-	    Put_Line(Consumer_Name(Consumer_Nb) & ": taken assembly " &
+	    Put_Line(Consumer_Name(Consumer_Nb) & " took dish " &
 		   To_String(Assembly_Name(Assembly_Type)) & " number " &
           Integer'Image(Assembly_Number));
      else
@@ -124,9 +124,9 @@ procedure Simulation is
       Storage: Storage_type
 	:= (0, 0, 0, 0, 0);
       Assembly_Content: array(Assembly_Type, Product_Type) of Integer
-	:= ((3, 0, 0, 2, 0), -- English Breakfast, 3x Egg and 2x Sausage
-	    (0, 2, 1, 0, 0), -- Roasted Beef with Potatoes, 2x Potato and 1x Beef
-	    (2, 0, 0, 0, 3)); -- Fried Eggs with Bacon, 2x Egg and 3x Bacon
+	:= ((300, 0, 0, 2, 0), -- English Breakfast, 3x Egg and 2x Sausage
+	    (0, 200, 1, 0, 0), -- Roasted Beef with Potatoes, 2x Potato and 1x Beef
+	    (200, 0, 0, 0, 3)); -- Fried Eggs with Bacon, 2x Egg and 3x Bacon
       Max_Assembly_Content: array(Product_Type) of Integer;
       Assembly_Number: array(Assembly_Type) of Integer
 	:= (1, 1, 1);

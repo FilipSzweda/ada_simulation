@@ -28,7 +28,7 @@ RV NO_IMPLICIT_LOOPS
 RV MAX_TASK_ENTRIES=1
 RV MAX_TASKS=1+
 
-U simulation%b		simulation.adb		9e8bb7ac NE OO SU
+U simulation%b		simulation.adb		944a079f NE OO SU
 W ada%s			ada.ads			ada.ali
 Z ada.calendar.delays%s	a-caldel.adb		a-caldel.ali
 Z ada.exceptions%s	a-except.adb		a-except.ali
@@ -84,7 +84,7 @@ D interfac.ads		20210520051132 edec285f interfaces%s
 D i-c.ads		20210520051132 d9beded9 interfaces.c%s
 D i-cstrin.ads		20210520051132 341d0ddf interfaces.c.strings%s
 D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
-D simulation.adb	20220102192008 9c8266b1 simulation%b
+D simulation.adb	20220102195100 9643d682 simulation%b
 D system.ads		20210520051136 2ffa5114 system%s
 D s-atacco.ads		20210520051132 4c36d12f system.address_to_access_conversions%s
 D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
@@ -147,8 +147,8 @@ X 11 a-nudira.ads
 52V13 Random{integer} 28|68s43[53] 105s44[84] 106s43[22]
 61U14 Reset<49|103p14> 28|61s28[53] 98s29[84] 99s26[22]
 X 12 a-nudira.adb
-53V16 Random[49|86]{integer} 50|402b13[28|53]
-65V16 Random[49|86]{integer} 50|402b13[28|53]
+53V16 Random[49|86]{integer} 50|402b13[28|22]
+65V16 Random[49|86]{integer} 50|402b13[28|84]
 X 15 a-string.ads
 16K13*Strings 35e16 28|8r10 8r37
 X 18 a-strunb.ads
@@ -170,7 +170,7 @@ X 28 simulation.adb
 11i4 Number_Of_Products{integer} 15r47 47r20 241r18
 12i4 Number_Of_Assemblies{integer} 16r48
 13i4 Number_Of_Consumers{integer} 17r48 48r20 92r43 244r18
-14o4 Take_Duration_Threshold{duration} 217r17
+14o4 Take_Duration_Threshold{duration} 74r15 217r17
 15I12 Product_Type{integer} 18r34 29r31 42r30 60r32 123r35 126r46 130r35
 . 137r19 147r36 150r25 161r19 175r19 190r19 200r19 210r34 225r25
 16I12 Assembly_Type{integer} 20r35 23r35 44r34 126r31 131r30 139r22 188r38
