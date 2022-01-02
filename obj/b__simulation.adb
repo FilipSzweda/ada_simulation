@@ -349,9 +349,9 @@ package body ada_main is
    end;
 
 --  BEGIN Object file/option list
-   --   D:\Pulpit\ada\obj\simulation.o
-   --   -LD:\Pulpit\ada\obj\
-   --   -LD:\Pulpit\ada\obj\
+   --   C:\workspaces\ada\obj\simulation.o
+   --   -LC:\workspaces\ada\obj\
+   --   -LC:\workspaces\ada\obj\
    --   -LD:/gnat/2021/lib/gcc/x86_64-w64-mingw32/10.3.1/adalib/
    --   -static
    --   -lgnarl

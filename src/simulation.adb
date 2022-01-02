@@ -104,10 +104,14 @@ procedure Simulation is
 	 delay Duration(Random_Consumption.Random(G)); --  simulate consumption
 	 Assembly_Type := Random_Assembly.Random(G2);
 	 -- take an assembly for consumption
-    B.Deliver(Assembly_Type, Assembly_Number);
-	 Put_Line(Consumer_Name(Consumer_Nb) & ": taken assembly " &
-		    To_String(Assembly_Name(Assembly_Type)) & " number " &
-		    Integer'Image(Assembly_Number));
+     B.Deliver(Assembly_Type, Assembly_Number);
+     if Assembly_Number /= 0 then
+	    Put_Line(Consumer_Name(Consumer_Nb) & ": taken assembly " &
+		   To_String(Assembly_Name(Assembly_Type)) & " number " &
+          Integer'Image(Assembly_Number));
+     else
+       Put_Line("Could not take assembly");
+     end if;
       end loop;
    end Consumer;
 
