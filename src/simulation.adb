@@ -100,7 +100,7 @@ procedure Simulation is
     -- take an assembly for consumption
     select
        B.Deliver(Assembly_Type, Consumer_Name(Consumer_Nb));
-     or delay 0.1;
+     or delay 1.0;
        Assembly_Type := Random_Assembly.Random(G2);
        Put_Line(Consumer_Name(Consumer_Nb) & " changed his mind, they want to order " &
                   To_String(Assembly_Name(Assembly_Type)) & " now");
