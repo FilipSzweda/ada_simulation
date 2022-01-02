@@ -70,9 +70,9 @@ procedure Simulation is
 	 -- Accept for storage
 	 select
        B.Take(Product_Type_Number, Product_Number);
-     or
-       delay 10.0;
-       Put_Line("Waited to take");
+     or delay 5.0;
+       Put_Line("Rejected product " & To_String(Product_Name(Product_Type_Number)) & " number " &
+		    Integer'Image(Product_Number));
     end select;
 	 Product_Number := Product_Number + 1;
       end loop;
@@ -212,9 +212,10 @@ procedure Simulation is
 		Integer'Image(Number));
 	      Storage(Product) := Storage(Product) + 1;
 	      In_Storage := In_Storage + 1;
-  	   else
-	      Put_Line("Rejected product " & To_String(Product_Name(Product)) & " number " &
-		    Integer'Image(Number));
+       else
+          delay 5.0;
+	      --Put_Line("Rejected product " & To_String(Product_Name(Product)) & " number " &
+		   --Integer'Image(Number));
 	   end if;
 	 end Take;
 	 Storage_Contents;
