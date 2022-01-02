@@ -90,7 +90,23 @@ procedure Simulation is
       Assembly_Type: Integer;
       Consumer_Name: constant array (1 .. Number_Of_Consumers)
 	of String(1 .. 9)
-	:= ("Consumer1", "Consumer2");
+        := ("Consumer1", "Consumer2");
+      
+      procedure DeliverOrWait
+         is
+         begin
+            -- take an assembly for consumption
+            B.Deliver(Assembly_Type, Assembly_Number);
+            if Assembly_Number /= 0 then
+               Put_Line(Consumer_Name(Consumer_Nb) & ": taken assembly " &
+                          To_String(Assembly_Name(Assembly_Type)) & " number " &
+                          Integer'Image(Assembly_Number));
+            else
+               Put_Line("Could not take assembly, waiting until delivery is possible");
+               delay 5.0;
+               DeliverOrWait;
+            end if;
+         end DeliverOrWait;
    begin
       accept Start(Consumer_Number: in Consumer_Type;
 		     Consumption_Time: in Integer) do
@@ -102,16 +118,8 @@ procedure Simulation is
       Put_Line("Started consumer " & Consumer_Name(Consumer_Nb));
       loop
 	 delay Duration(Random_Consumption.Random(G)); --  simulate consumption
-	 Assembly_Type := Random_Assembly.Random(G2);
-	 -- take an assembly for consumption
-     B.Deliver(Assembly_Type, Assembly_Number);
-     if Assembly_Number /= 0 then
-	    Put_Line(Consumer_Name(Consumer_Nb) & ": taken assembly " &
-		   To_String(Assembly_Name(Assembly_Type)) & " number " &
-          Integer'Image(Assembly_Number));
-     else
-       Put_Line("Could not take assembly");
-     end if;
+         Assembly_Type := Random_Assembly.Random(G2);
+         DeliverOrWait;
       end loop;
    end Consumer;
 
