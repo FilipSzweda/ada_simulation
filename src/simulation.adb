@@ -11,7 +11,6 @@ procedure Simulation is
    Number_Of_Products: constant Integer := 5;
    Number_Of_Assemblies: constant Integer := 3;
    Number_Of_Consumers: constant Integer := 2;
-   Take_Duration_Threshold: constant Duration := 5.0;
    subtype Product_Type is Integer range 1 .. Number_Of_Products;
    subtype Assembly_Type is Integer range 1 .. Number_Of_Assemblies;
    subtype Consumer_Type is Integer range 1 .. Number_Of_Consumers;
@@ -41,7 +40,7 @@ procedure Simulation is
       -- Accept a product to the storage provided there is a room for it
       entry Take(Product: in Product_Type; Number: in Integer);
       -- Deliver an assembly provided there are enough products for it
-      entry Deliver(Assembly: in Assembly_Type; Number: out Integer);
+      entry Deliver(Assembly: in Assembly_Type; Consumer_Name_String: in String; Number: out Integer);
    end Buffer;
 
    P: array ( 1 .. Number_Of_Products ) of Producer;
@@ -69,12 +68,7 @@ procedure Simulation is
 	 Put_Line("Produced product " & To_String(Product_Name(Product_Type_Number))
 		    & " number "  & Integer'Image(Product_Number));
 	 -- Accept for storage
-	 select
-       B.Take(Product_Type_Number, Product_Number);
-     or delay Take_Duration_Threshold;
-       Put_Line("Rejected product " & To_String(Product_Name(Product_Type_Number)) & " number " &
-		    Integer'Image(Product_Number));
-    end select;
+     B.Take(Product_Type_Number, Product_Number);
 	 Product_Number := Product_Number + 1;
       end loop;
    end Producer;
@@ -104,17 +98,20 @@ procedure Simulation is
       loop
 	 delay Duration(Random_Consumption.Random(G)); --  simulate consumption
 	 Assembly_Type := Random_Assembly.Random(G2);
-	 -- take an assembly for consumption
-    B.Deliver(Assembly_Type, Assembly_Number);
-     if Assembly_Number /= 0 then
-	    Put_Line(Consumer_Name(Consumer_Nb) & " took dish " &
-		   To_String(Assembly_Name(Assembly_Type)) & " number " &
-          Integer'Image(Assembly_Number));
-     else
-        Put_Line("Could not make " &
-            To_String(Assembly_Name(Assembly_Type)) & " for " &
-            Consumer_Name(Consumer_Nb));
-     end if;
+    -- take an assembly for consumption
+    select
+       B.Deliver(Assembly_Type, Consumer_Name(Consumer_Nb), Assembly_Number);
+     or delay 0.1;
+       --if Assembly_Number /= 0 then
+               Put_Line("Too late, the dish is already cold! " & Consumer_Name(Consumer_Nb) &
+                       " rejected " & To_String(Assembly_Name(Assembly_Type)) & " number " &
+                       Integer'Image(Assembly_Number));
+       --else
+               --Put_Line("Could not make " &
+                       --To_String(Assembly_Name(Assembly_Type)) & " for " &
+                       --Consumer_Name(Consumer_Nb));
+       --end if;
+    end select;
       end loop;
    end Consumer;
 
@@ -124,9 +121,9 @@ procedure Simulation is
       Storage: Storage_type
 	:= (0, 0, 0, 0, 0);
       Assembly_Content: array(Assembly_Type, Product_Type) of Integer
-	:= ((300, 0, 0, 2, 0), -- English Breakfast, 3x Egg and 2x Sausage
-	    (0, 200, 1, 0, 0), -- Roasted Beef with Potatoes, 2x Potato and 1x Beef
-	    (200, 0, 0, 0, 3)); -- Fried Eggs with Bacon, 2x Egg and 3x Bacon
+	:= ((3, 0, 0, 2, 0), -- English Breakfast, 3x Egg and 2x Sausage
+	    (0, 2, 1, 0, 0), -- Roasted Beef with Potatoes, 2x Potato and 1x Beef
+	    (2, 0, 0, 0, 3)); -- Fried Eggs with Bacon, 2x Egg and 3x Bacon
       Max_Assembly_Content: array(Product_Type) of Integer;
       Assembly_Number: array(Assembly_Type) of Integer
 	:= (1, 1, 1);
@@ -214,14 +211,16 @@ procedure Simulation is
 	      Storage(Product) := Storage(Product) + 1;
 	      In_Storage := In_Storage + 1;
        else
-          delay Take_Duration_Threshold;
+          Put_Line("Rejected product " & To_String(Product_Name(Product)) & " number " &
+		    Integer'Image(Number));
 	   end if;
 	 end Take;
 	 Storage_Contents;
-	 accept Deliver(Assembly: in Assembly_Type; Number: out Integer) do
+	 accept Deliver(Assembly: in Assembly_Type; Consumer_Name_String: in String; Number: out Integer) do
 	    if Can_Deliver(Assembly) then
-	       Put_Line("Delivered dish " & To_String(Assembly_Name(Assembly)) & " number " &
-			  Integer'Image(Assembly_Number(Assembly)));
+	       Put_Line(Consumer_Name_String & " took dish " &
+		   To_String(Assembly_Name(Assembly)) & " number " &
+          Integer'Image(Assembly_Number(Assembly)));
 	       for W in Product_Type loop
 		  Storage(W) := Storage(W) - Assembly_Content(Assembly, W);
 		  In_Storage := In_Storage - Assembly_Content(Assembly, W);
@@ -229,7 +228,9 @@ procedure Simulation is
 	       Number := Assembly_Number(Assembly);
 	       Assembly_Number(Assembly) := Assembly_Number(Assembly) + 1;
 	    else
-	       Put_Line("Lacking products for dish " & To_String(Assembly_Name(Assembly)));
+            Put_Line("Could not make " &
+            To_String(Assembly_Name(Assembly)) & " for " &
+            Consumer_Name_String);
 	       Number := 0;
 	    end if;
 	 end Deliver;
