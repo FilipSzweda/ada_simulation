@@ -11,6 +11,7 @@ procedure Simulation is
    Number_Of_Products: constant Integer := 5;
    Number_Of_Assemblies: constant Integer := 3;
    Number_Of_Consumers: constant Integer := 2;
+   Take_Duration_Threshold: constant Duration := 5.0;
    subtype Product_Type is Integer range 1 .. Number_Of_Products;
    subtype Assembly_Type is Integer range 1 .. Number_Of_Assemblies;
    subtype Consumer_Type is Integer range 1 .. Number_Of_Consumers;
@@ -70,7 +71,7 @@ procedure Simulation is
 	 -- Accept for storage
 	 select
        B.Take(Product_Type_Number, Product_Number);
-     or delay 5.0;
+     or delay Take_Duration_Threshold;
        Put_Line("Rejected product " & To_String(Product_Name(Product_Type_Number)) & " number " &
 		    Integer'Image(Product_Number));
     end select;
@@ -123,9 +124,9 @@ procedure Simulation is
       Storage: Storage_type
 	:= (0, 0, 0, 0, 0);
       Assembly_Content: array(Assembly_Type, Product_Type) of Integer
-	:= ((3, 0, 0, 2, 0),
-	    (0, 2, 1, 0, 0),
-	    (2, 0, 0, 0, 3));
+	:= ((3, 0, 0, 2, 0), -- English Breakfast, 3x Egg and 2x Sausage
+	    (0, 2, 1, 0, 0), -- Roasted Beef with Potatoes, 2x Potato and 1x Beef
+	    (2, 0, 0, 0, 3)); -- Fried Eggs with Bacon, 2x Egg and 3x Bacon
       Max_Assembly_Content: array(Product_Type) of Integer;
       Assembly_Number: array(Assembly_Type) of Integer
 	:= (1, 1, 1);
@@ -213,9 +214,7 @@ procedure Simulation is
 	      Storage(Product) := Storage(Product) + 1;
 	      In_Storage := In_Storage + 1;
        else
-          delay 5.0;
-	      --Put_Line("Rejected product " & To_String(Product_Name(Product)) & " number " &
-		   --Integer'Image(Number));
+          delay Take_Duration_Threshold;
 	   end if;
 	 end Take;
 	 Storage_Contents;

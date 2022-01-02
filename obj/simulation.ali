@@ -28,7 +28,7 @@ RV NO_IMPLICIT_LOOPS
 RV MAX_TASK_ENTRIES=1
 RV MAX_TASKS=1+
 
-U simulation%b		simulation.adb		e4a4965b NE OO SU
+U simulation%b		simulation.adb		9e8bb7ac NE OO SU
 W ada%s			ada.ads			ada.ali
 Z ada.calendar.delays%s	a-caldel.adb		a-caldel.ali
 Z ada.exceptions%s	a-except.adb		a-except.ali
@@ -84,7 +84,7 @@ D interfac.ads		20210520051132 edec285f interfaces%s
 D i-c.ads		20210520051132 d9beded9 interfaces.c%s
 D i-cstrin.ads		20210520051132 341d0ddf interfaces.c.strings%s
 D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
-D simulation.adb	20220102175500 e6ad4746 simulation%b
+D simulation.adb	20220102192008 9c8266b1 simulation%b
 D system.ads		20210520051136 2ffa5114 system%s
 D s-atacco.ads		20210520051132 4c36d12f system.address_to_access_conversions%s
 D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
@@ -136,118 +136,119 @@ D unchconv.ads		20210520051136 ca2f9e18 unchecked_conversion%s
 G a e
 G c Z b b [simulation standard 10 11 none]
 X 1 ada.ads
-16K9*Ada 20e8 28|5r6 5r23 6r6 7r6 8r6 8r33 22r6 53r9 84r9
+16K9*Ada 20e8 28|5r6 5r23 6r6 7r6 8r6 8r33 23r6 54r9 85r9
 X 8 a-inteio.ads
 18K13*Integer_Text_IO[22|46] 28|6w10
 X 10 a-numeri.ads
-16K13*Numerics 35e17 28|7r10 22r10 53r13 84r13
+16K13*Numerics 35e17 28|7r10 23r10 54r13 85r13
 X 11 a-nudira.ads
-44k22*Discrete_Random 81e33 28|7w19 22r19 53r22 84r22
-50R9 Generator<49|65R9> 28|54r28[52] 85r29[83] 86r27[21]
-52V13 Random{integer} 28|67s43[52] 104s44[83] 105s43[21]
-61U14 Reset<49|103p14> 28|60s28[52] 97s29[83] 98s26[21]
+44k22*Discrete_Random 81e33 28|7w19 23r19 54r22 85r22
+50R9 Generator<49|65R9> 28|55r28[53] 86r29[84] 87r27[22]
+52V13 Random{integer} 28|68s43[53] 105s44[84] 106s43[22]
+61U14 Reset<49|103p14> 28|61s28[53] 98s29[84] 99s26[22]
 X 12 a-nudira.adb
-53V16 Random[49|86]{integer} 50|402b13[28|21]
-65V16 Random[49|86]{integer} 50|402b13[28|52]
+53V16 Random[49|86]{integer} 50|402b13[28|53]
+65V16 Random[49|86]{integer} 50|402b13[28|53]
 X 15 a-string.ads
 16K13*Strings 35e16 28|8r10 8r37
 X 18 a-strunb.ads
 83K21*Unbounded 765e26 28|8w18 8r45
-88R9*Unbounded_String<7|43R9> 744e15 28|17r51 19r53
-104V13*To_Unbounded_String{88R9} 28|18s10 18s38 18s69 18s98 18s130 20s10
-. 20s52 20s103
-117V13*To_String{string} 28|65s41 68s41 74s39 110s20 114s13 201s26 211s46
-. 224s45 233s56
+88R9*Unbounded_String<7|43R9> 744e15 28|18r51 20r53
+104V13*To_Unbounded_String{88R9} 28|19s10 19s38 19s69 19s98 19s130 21s10
+. 21s52 21s103
+117V13*To_String{string} 28|66s41 69s41 75s39 111s20 115s13 202s26 212s46
+. 223s45 232s56
 X 21 a-textio.ads
 58K13*Text_IO 725e16 28|5w10 5r27
-506U14*Put_Line 28|65s7 68s10 74s8 102s7 109s13 113s9 200s13 206s7 211s15
-. 224s16 233s16
+506U14*Put_Line 28|66s7 69s10 75s8 103s7 110s13 114s9 201s13 207s7 212s15
+. 223s16 232s16
 X 24 interfac.ads
 79M9*Unsigned_32
 82M9*Unsigned_64
 X 28 simulation.adb
-10U11*Simulation 10b11 248l5 248t15
-11i4 Number_Of_Products{integer} 14r47 46r20 242r18
-12i4 Number_Of_Assemblies{integer} 15r48
-13i4 Number_Of_Consumers{integer} 16r48 47r20 91r43 245r18
-14I12 Product_Type{integer} 17r34 28r31 41r30 59r32 122r35 125r46 129r35
-. 136r19 146r36 149r25 160r19 174r19 189r19 199r19 209r34 226r25
-15I12 Assembly_Type{integer} 19r35 22r35 43r34 125r31 130r30 138r22 187r38
-. 222r38
-16I12 Consumer_Type{integer} 34r39 87r20 95r40
-17a4 Product_Name(18|88R9) 65r51 68r51 74r49 201r36 211r56
-19a4 Assembly_Name(18|88R9) 110r30 114r23 224r55 233r66
-21K12 Random_Assembly[11|44] 86r11 98r10 105r27
-23A9 My_Str<string>(character)<integer>
-26T14 Producer 29l8 29e16 46r44 50b14 79l8 79t16
-28Y13 Start 28>19 28>45 59b14 64l11 64t16 243s12
-28i19 Product{14I12} 62r33
-28i45 Production_Time{integer} 63r24
-32T14 Consumer 36l8 36e16 47r45 81b14 118l8 118t16
-34Y13 Start 34>19 35>21 95b14 101l11 101t16 246s12
-34i19 Consumer_Number{16I12} 99r25
-35i21 Consumption_Time{integer} 100r25
-39T14 Buffer 44l8 44e14 48r7 120b14 239l8 239t14
-41Y13 Take 41>18 41>44 72s10 209b17 220l14 220t18
-41i18 Product{14I12} 210r26 211r69 213r23 213r43
-41i44 Number{integer} 212r31
-43Y13 Deliver 43>21 43<49 107s7 222b17 236l14 236t21
-43i21 Assembly{15I12} 223r28 224r69 225r57 227r63 228r63 230r42 231r32 231r61
-. 233r80
-43i49 Number{integer} 230m16 230r16 234m16 234r16
-46a4 P(26T14) 243r7
-47a4 K(32T14) 246r7
-48t4 B{39T14} 72r8 107r5
-51I15 Production_Time_Range{integer} 53r38
-52K15 Random_Production[11|44] 54r10 60r10 67r25
-54r7 G{11|50R9[52]} 60r34 67r50
-55i7 Product_Type_Number{integer} 62m10 65r64 68r64 72r15 74r62
-56i7 Product_Number{integer} 61m10 69r51 72r36 75r35 77m10 77r28
-57i7 Production{integer} 63m10
-59i20 Product{14I12}
-59i46 Production_Time{integer}
-82I15 Consumption_Time_Range{integer} 84r38
-83K15 Random_Consumption[11|44] 85r10 97r10 104r25
-85r7 G{11|50R9[83]} 97r35 104r51
-86r7 G2{11|50R9[21]} 98r32 105r50
-87i7 Consumer_Nb{16I12} 99m10 102r52 109r36 115r27
-88i7 Assembly_Number{integer} 107m30 108r9 111r25
-89i7 Consumption{integer} 100m10
-90i7 Assembly_Type{integer} 105m10 107r15 110r44 114r37
-91a7 Consumer_Name(string) 102r38 109r22 115r13
-95i20 Consumer_Number{16I12}
-96i22 Consumption_Time{integer}
-121i7 Storage_Capacity{integer} 154r27 158r18
-122A12 Storage_type(integer)<integer> 123r16
-123a7 Storage{122A12} 161r16 169r60 175r68 190r16 200r59 213m15 213r35 227m19
-. 227r33
-125a7 Assembly_Content(integer) 139r19 140r46 190r29 227r46 228r46
-129a7 Max_Assembly_Content(integer) 137m13 139r44 140m19 161r29 169r28 175r42
-130a7 Assembly_Number(integer) 225r41 230r26 231m16 231r45
-132i7 In_Storage{integer} 154r13 158r37 214m15 214r29 228m19 228r33
-134U17 Setup_Variables 134b17 144l11 144t26 207s7
-136i14 W{14I12} 137r34 139r39 139r65 140r40 140r66
-138i17 Z{15I12} 139r36 140r63
-146V16 Can_Accept{boolean} 146b16 146>27 185l11 185t21 210s15
-146i27 Product{14I12} 169r49 169r68
-147i10 Free{integer} 158m10 178r13
-149a10 Lacking(integer) 175m13 176r44
-151i10 Lacking_room{integer} 173m10 176m13 176r29 178r21
-152b10 MP{boolean} 159m10 162m16 165r13
-160i14 W{14I12} 161r24 161r50
-174i14 W{14I12} 175r21 175r63 175r76 176r52
-187V16 Can_Deliver{boolean} 187b16 187>28 195l11 195t22 223s16
-187i28 Assembly{15I12} 190r46
-189i14 W{14I12} 190r24 190r56
-197U17 Storage_Contents 197b17 203l11 203t27 221s10 237s10
-199i14 W{14I12} 200r67 201r49
-209i22 Product{14I12}
-209i48 Number{integer}
-222i25 Assembly{15I12}
-222i53 Number{integer}
-226i20 W{14I12} 227r27 227r41 227r73 228r73
-242i8 I{integer} 243r9 243r18
-245i8 J{integer} 246r9 246r18
+10U11*Simulation 10b11 247l5 247t15
+11i4 Number_Of_Products{integer} 15r47 47r20 241r18
+12i4 Number_Of_Assemblies{integer} 16r48
+13i4 Number_Of_Consumers{integer} 17r48 48r20 92r43 244r18
+14o4 Take_Duration_Threshold{duration} 217r17
+15I12 Product_Type{integer} 18r34 29r31 42r30 60r32 123r35 126r46 130r35
+. 137r19 147r36 150r25 161r19 175r19 190r19 200r19 210r34 225r25
+16I12 Assembly_Type{integer} 20r35 23r35 44r34 126r31 131r30 139r22 188r38
+. 221r38
+17I12 Consumer_Type{integer} 35r39 88r20 96r40
+18a4 Product_Name(18|88R9) 66r51 69r51 75r49 202r36 212r56
+20a4 Assembly_Name(18|88R9) 111r30 115r23 223r55 232r66
+22K12 Random_Assembly[11|44] 87r11 99r10 106r27
+24A9 My_Str<string>(character)<integer>
+27T14 Producer 30l8 30e16 47r44 51b14 80l8 80t16
+29Y13 Start 29>19 29>45 60b14 65l11 65t16 242s12
+29i19 Product{15I12} 63r33
+29i45 Production_Time{integer} 64r24
+33T14 Consumer 37l8 37e16 48r45 82b14 119l8 119t16
+35Y13 Start 35>19 36>21 96b14 102l11 102t16 245s12
+35i19 Consumer_Number{17I12} 100r25
+36i21 Consumption_Time{integer} 101r25
+40T14 Buffer 45l8 45e14 49r7 121b14 238l8 238t14
+42Y13 Take 42>18 42>44 73s10 210b17 219l14 219t18
+42i18 Product{15I12} 211r26 212r69 214r23 214r43
+42i44 Number{integer} 213r31
+44Y13 Deliver 44>21 44<49 108s7 221b17 235l14 235t21
+44i21 Assembly{16I12} 222r28 223r69 224r57 226r63 227r63 229r42 230r32 230r61
+. 232r80
+44i49 Number{integer} 229m16 229r16 233m16 233r16
+47a4 P(27T14) 242r7
+48a4 K(33T14) 245r7
+49t4 B{40T14} 73r8 108r5
+52I15 Production_Time_Range{integer} 54r38
+53K15 Random_Production[11|44] 55r10 61r10 68r25
+55r7 G{11|50R9[53]} 61r34 68r50
+56i7 Product_Type_Number{integer} 63m10 66r64 69r64 73r15 75r62
+57i7 Product_Number{integer} 62m10 70r51 73r36 76r35 78m10 78r28
+58i7 Production{integer} 64m10
+60i20 Product{15I12}
+60i46 Production_Time{integer}
+83I15 Consumption_Time_Range{integer} 85r38
+84K15 Random_Consumption[11|44] 86r10 98r10 105r25
+86r7 G{11|50R9[84]} 98r35 105r51
+87r7 G2{11|50R9[22]} 99r32 106r50
+88i7 Consumer_Nb{17I12} 100m10 103r52 110r36 116r27
+89i7 Assembly_Number{integer} 108m30 109r9 112r25
+90i7 Consumption{integer} 101m10
+91i7 Assembly_Type{integer} 106m10 108r15 111r44 115r37
+92a7 Consumer_Name(string) 103r38 110r22 116r13
+96i20 Consumer_Number{17I12}
+97i22 Consumption_Time{integer}
+122i7 Storage_Capacity{integer} 155r27 159r18
+123A12 Storage_type(integer)<integer> 124r16
+124a7 Storage{123A12} 162r16 170r60 176r68 191r16 201r59 214m15 214r35 226m19
+. 226r33
+126a7 Assembly_Content(integer) 140r19 141r46 191r29 226r46 227r46
+130a7 Max_Assembly_Content(integer) 138m13 140r44 141m19 162r29 170r28 176r42
+131a7 Assembly_Number(integer) 224r41 229r26 230m16 230r45
+133i7 In_Storage{integer} 155r13 159r37 215m15 215r29 227m19 227r33
+135U17 Setup_Variables 135b17 145l11 145t26 208s7
+137i14 W{15I12} 138r34 140r39 140r65 141r40 141r66
+139i17 Z{16I12} 140r36 141r63
+147V16 Can_Accept{boolean} 147b16 147>27 186l11 186t21 211s15
+147i27 Product{15I12} 170r49 170r68
+148i10 Free{integer} 159m10 179r13
+150a10 Lacking(integer) 176m13 177r44
+152i10 Lacking_room{integer} 174m10 177m13 177r29 179r21
+153b10 MP{boolean} 160m10 163m16 166r13
+161i14 W{15I12} 162r24 162r50
+175i14 W{15I12} 176r21 176r63 176r76 177r52
+188V16 Can_Deliver{boolean} 188b16 188>28 196l11 196t22 222s16
+188i28 Assembly{16I12} 191r46
+190i14 W{15I12} 191r24 191r56
+198U17 Storage_Contents 198b17 204l11 204t27 220s10 236s10
+200i14 W{15I12} 201r67 202r49
+210i22 Product{15I12}
+210i48 Number{integer}
+221i25 Assembly{16I12}
+221i53 Number{integer}
+225i20 W{15I12} 226r27 226r41 226r73 227r73
+241i8 I{integer} 242r9 242r18
+244i8 J{integer} 245r9 245r18
 X 29 system.ads
 67M9*Address
 X 44 s-memory.ads
