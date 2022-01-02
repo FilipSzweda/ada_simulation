@@ -41,6 +41,7 @@ procedure Simulation is
       entry Take(Product: in Product_Type; Number: in Integer);
       -- Deliver an assembly provided there are enough products for it
       entry Deliver(Assembly: in Assembly_Type; Number: out Integer);
+      entry DeliverAfterWait(Assembly: in Assembly_Type; Number: out Integer);
    end Buffer;
 
    P: array ( 1 .. Number_Of_Products ) of Producer;
@@ -92,21 +93,23 @@ procedure Simulation is
 	of String(1 .. 9)
         := ("Consumer1", "Consumer2");
       
-      procedure DeliverOrWait
+      procedure DeliverOrWaitForAssembly
          is
          begin
             -- take an assembly for consumption
-            B.Deliver(Assembly_Type, Assembly_Number);
+            B.DeliverAfterWait(Assembly_Type, Assembly_Number);
             if Assembly_Number /= 0 then
                Put_Line(Consumer_Name(Consumer_Nb) & ": taken assembly " &
                           To_String(Assembly_Name(Assembly_Type)) & " number " &
-                          Integer'Image(Assembly_Number));
+                          Integer'Image(Assembly_Number) & " after wait");
             else
-               Put_Line("Could not take assembly, waiting until delivery is possible");
+               Put_Line(Consumer_Name(Consumer_Nb) & ": could not take assembly " &
+                          To_String(Assembly_Name(Assembly_Type)) &
+                          ", waiting until delivery is possible");
                delay 5.0;
-               DeliverOrWait;
+               DeliverOrWaitForAssembly;
             end if;
-         end DeliverOrWait;
+         end DeliverOrWaitForAssembly;
    begin
       accept Start(Consumer_Number: in Consumer_Type;
 		     Consumption_Time: in Integer) do
@@ -119,7 +122,18 @@ procedure Simulation is
       loop
 	 delay Duration(Random_Consumption.Random(G)); --  simulate consumption
          Assembly_Type := Random_Assembly.Random(G2);
-         DeliverOrWait;
+         B.Deliver(Assembly_Type, Assembly_Number);
+            if Assembly_Number /= 0 then
+               Put_Line(Consumer_Name(Consumer_Nb) & ": taken assembly " &
+                          To_String(Assembly_Name(Assembly_Type)) & " number " &
+                          Integer'Image(Assembly_Number));
+            else
+               Put_Line(Consumer_Name(Consumer_Nb) & ": could not take assembly " &
+                          To_String(Assembly_Name(Assembly_Type)) &
+                          ", waiting until delivery is possible");
+               delay 5.0;
+               DeliverOrWaitForAssembly;
+            end if;
       end loop;
    end Consumer;
 
@@ -238,7 +252,18 @@ procedure Simulation is
 	       Put_Line("Lacking products for assembly " & To_String(Assembly_Name(Assembly)));
 	       Number := 0;
 	    end if;
-	 end Deliver;
+      end Deliver;
+      accept DeliverAfterWait(Assembly: in Assembly_Type; Number: out Integer) do
+	    if Can_Deliver(Assembly) then
+	       Put_Line("Delivered assembly after wait " & To_String(Assembly_Name(Assembly)) & " number " &
+			  Integer'Image(Assembly_Number(Assembly)));
+	       Number := Assembly_Number(Assembly);
+	       Assembly_Number(Assembly) := Assembly_Number(Assembly) + 1;
+	    else
+	       Put_Line("Lacking products for assembly " & To_String(Assembly_Name(Assembly)) & ", still waiting");
+	       Number := 0;
+	    end if;
+	  end DeliverAfterWait;
 	 Storage_Contents;
       end loop;
    end Buffer;
