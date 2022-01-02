@@ -40,7 +40,7 @@ procedure Simulation is
       -- Accept a product to the storage provided there is a room for it
       entry Take(Product: in Product_Type; Number: in Integer);
       -- Deliver an assembly provided there are enough products for it
-      entry Deliver(Assembly: in Assembly_Type; Consumer_Name_String: in String; Number: out Integer);
+      entry Deliver(Assembly: in Assembly_Type; Consumer_Name_String: in String);
    end Buffer;
 
    P: array ( 1 .. Number_Of_Products ) of Producer;
@@ -66,7 +66,7 @@ procedure Simulation is
       loop
 	 delay Duration(Random_Production.Random(G)); --  symuluj produkcje
 	 Put_Line("Produced product " & To_String(Product_Name(Product_Type_Number))
-		    & " number "  & Integer'Image(Product_Number));
+		    & " n."  & Integer'Image(Product_Number));
 	 -- Accept for storage
      B.Take(Product_Type_Number, Product_Number);
 	 Product_Number := Product_Number + 1;
@@ -80,12 +80,11 @@ procedure Simulation is
       G: Random_Consumption.Generator;	--  random number generator (time)
       G2: Random_Assembly.Generator;	--  also (assemblies)
       Consumer_Nb: Consumer_Type;
-      Assembly_Number: Integer;
       Consumption: Integer;
       Assembly_Type: Integer;
       Consumer_Name: constant array (1 .. Number_Of_Consumers)
-	of String(1 .. 12)
-	:= ("Consumer n.1", "Consumer n.2");
+	of String(1 .. 13)
+	:= ("Consumer n. 1", "Consumer n. 2");
    begin
       accept Start(Consumer_Number: in Consumer_Type;
 		     Consumption_Time: in Integer) do
@@ -100,17 +99,12 @@ procedure Simulation is
 	 Assembly_Type := Random_Assembly.Random(G2);
     -- take an assembly for consumption
     select
-       B.Deliver(Assembly_Type, Consumer_Name(Consumer_Nb), Assembly_Number);
+       B.Deliver(Assembly_Type, Consumer_Name(Consumer_Nb));
      or delay 0.1;
-       --if Assembly_Number /= 0 then
-               Put_Line("Too late, the dish is already cold! " & Consumer_Name(Consumer_Nb) &
-                       " rejected " & To_String(Assembly_Name(Assembly_Type)) & " number " &
-                       Integer'Image(Assembly_Number));
-       --else
-               --Put_Line("Could not make " &
-                       --To_String(Assembly_Name(Assembly_Type)) & " for " &
-                       --Consumer_Name(Consumer_Nb));
-       --end if;
+       Assembly_Type := Random_Assembly.Random(G2);
+       Put_Line(Consumer_Name(Consumer_Nb) & " changed his mind, they want to order " &
+                  To_String(Assembly_Name(Assembly_Type)) & " now");
+       B.Deliver(Assembly_Type, Consumer_Name(Consumer_Nb));
     end select;
       end loop;
    end Consumer;
@@ -201,22 +195,22 @@ procedure Simulation is
       end Storage_Contents;
 
    begin
-      Put_Line("Buffer started");
+      Put_Line("Kitchen opened");
       Setup_Variables;
       loop
 	 accept Take(Product: in Product_Type; Number: in Integer) do
 	   if Can_Accept(Product) then
-	      Put_Line("Accepted product " & To_String(Product_Name(Product)) & " number " &
+	      Put_Line("Accepted product " & To_String(Product_Name(Product)) & " n." &
 		Integer'Image(Number));
 	      Storage(Product) := Storage(Product) + 1;
 	      In_Storage := In_Storage + 1;
        else
-          Put_Line("Rejected product " & To_String(Product_Name(Product)) & " number " &
+          Put_Line("Rejected product " & To_String(Product_Name(Product)) & " n." &
 		    Integer'Image(Number));
 	   end if;
 	 end Take;
 	 Storage_Contents;
-	 accept Deliver(Assembly: in Assembly_Type; Consumer_Name_String: in String; Number: out Integer) do
+	 accept Deliver(Assembly: in Assembly_Type; Consumer_Name_String: in String) do
 	    if Can_Deliver(Assembly) then
 	       Put_Line(Consumer_Name_String & " took dish " &
 		   To_String(Assembly_Name(Assembly)) & " number " &
@@ -225,13 +219,11 @@ procedure Simulation is
 		  Storage(W) := Storage(W) - Assembly_Content(Assembly, W);
 		  In_Storage := In_Storage - Assembly_Content(Assembly, W);
 	       end loop;
-	       Number := Assembly_Number(Assembly);
 	       Assembly_Number(Assembly) := Assembly_Number(Assembly) + 1;
 	    else
             Put_Line("Could not make " &
             To_String(Assembly_Name(Assembly)) & " for " &
             Consumer_Name_String);
-	       Number := 0;
 	    end if;
 	 end Deliver;
 	 Storage_Contents;
