@@ -15,9 +15,9 @@ procedure Simulation is
    subtype Assembly_Type is Integer range 1 .. Number_Of_Assemblies;
    subtype Consumer_Type is Integer range 1 .. Number_Of_Consumers;
    Product_Name: constant array (Product_Type) of Unbounded_String
-     := (To_Unbounded_String("CPU"), To_Unbounded_String("Motherboard"), To_Unbounded_String("Case"), To_Unbounded_String("Power supply"), To_Unbounded_String("RAM"));
+     := (To_Unbounded_String("Egg"), To_Unbounded_String("Potato"), To_Unbounded_String("Beef"), To_Unbounded_String("Sausage"), To_Unbounded_String("Bacon"));
    Assembly_Name: constant array (Assembly_Type) of Unbounded_String
-     := (To_Unbounded_String("Morele computer"), To_Unbounded_String("Komputronik computer"), To_Unbounded_String("X-Kom computer"));
+     := (To_Unbounded_String("English Breakfast"), To_Unbounded_String("Roasted Beef with Potatoes"), To_Unbounded_String("Fried Eggs with Bacon"));
    package Random_Assembly is new
      Ada.Numerics.Discrete_Random(Assembly_Type);
    type My_Str is new String(1 ..256);
@@ -105,9 +105,15 @@ procedure Simulation is
 	 Assembly_Type := Random_Assembly.Random(G2);
 	 -- take an assembly for consumption
     B.Deliver(Assembly_Type, Assembly_Number);
-	 Put_Line(Consumer_Name(Consumer_Nb) & ": taken assembly " &
-		    To_String(Assembly_Name(Assembly_Type)) & " number " &
-		    Integer'Image(Assembly_Number));
+     if Assembly_Number /= 0 then
+	    Put_Line(Consumer_Name(Consumer_Nb) & ": taken assembly " &
+		   To_String(Assembly_Name(Assembly_Type)) & " number " &
+          Integer'Image(Assembly_Number));
+     else
+        Put_Line("Could not make " &
+            To_String(Assembly_Name(Assembly_Type)) & " for " &
+            Consumer_Name(Consumer_Nb));
+     end if;
       end loop;
    end Consumer;
 
@@ -117,9 +123,9 @@ procedure Simulation is
       Storage: Storage_type
 	:= (0, 0, 0, 0, 0);
       Assembly_Content: array(Assembly_Type, Product_Type) of Integer
-	:= ((2, 1, 2, 1, 2),
-	    (2, 2, 0, 1, 0),
-	    (1, 1, 2, 0, 1));
+	:= ((3, 0, 0, 2, 0),
+	    (0, 2, 1, 0, 0),
+	    (2, 0, 0, 0, 3));
       Max_Assembly_Content: array(Product_Type) of Integer;
       Assembly_Number: array(Assembly_Type) of Integer
 	:= (1, 1, 1);
@@ -214,7 +220,7 @@ procedure Simulation is
 	 Storage_Contents;
 	 accept Deliver(Assembly: in Assembly_Type; Number: out Integer) do
 	    if Can_Deliver(Assembly) then
-	       Put_Line("Delivered assembly " & To_String(Assembly_Name(Assembly)) & " number " &
+	       Put_Line("Delivered dish " & To_String(Assembly_Name(Assembly)) & " number " &
 			  Integer'Image(Assembly_Number(Assembly)));
 	       for W in Product_Type loop
 		  Storage(W) := Storage(W) - Assembly_Content(Assembly, W);
@@ -223,7 +229,7 @@ procedure Simulation is
 	       Number := Assembly_Number(Assembly);
 	       Assembly_Number(Assembly) := Assembly_Number(Assembly) + 1;
 	    else
-	       Put_Line("Lacking products for assembly " & To_String(Assembly_Name(Assembly)));
+	       Put_Line("Lacking products for dish " & To_String(Assembly_Name(Assembly)));
 	       Number := 0;
 	    end if;
 	 end Deliver;
