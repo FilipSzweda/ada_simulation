@@ -1,48 +1,63 @@
 V "GNAT Lib v2021"
-M P W=b
 A -gnatA
 A -mtune=generic
 A -march=x86-64
 P SS ZX
 
 RN
+RV NO_DELAY
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTIONS
+RV NO_FIXED_POINT
 RV NO_IO
-RV NO_SECONDARY_STACK
+RV NO_LOCAL_ALLOCATORS
+RV NO_RELATIVE_DELAY
 RV NO_STANDARD_STORAGE_POOLS
-RV NO_TASK_HIERARCHY
 RV NO_TASKING
 RV NO_DEFAULT_INITIALIZATION
 RV NO_DYNAMIC_SIZED_OBJECTS
 RV NO_IMPLEMENTATION_PRAGMAS
-RV NO_IMPLICIT_LOOPS
-RV MAX_TASKS=1+
+RV NO_ELABORATION_CODE
+RV MAX_TASK_ENTRIES=1
 
-U main%b		main.adb		e11cb741 NE OO SU
-W ada%s			ada.ads			ada.ali
-W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+U producent%b		producent.adb		282e0953 OO PK IL
+Z ada.calendar.delays%s	a-caldel.adb		a-caldel.ali
 W ada.numerics%s	a-numeri.ads		a-numeri.ali
-W ada.numerics.discrete_random%s
-W ada.strings%s		a-string.ads		a-string.ali
 Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
-W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
-W ada.text_io%s		a-textio.adb		a-textio.ali
-W bufor%s		bufor.adb		bufor.ali
-W konsument%s		konsument.adb		konsument.ali
-W producent%s		producent.adb		producent.ali
-Z system%s		system.ads		system.ali
+W system%s		system.ads		system.ali
+Z system.concat_2%s	s-conca2.adb		s-conca2.ali
+Z system.concat_4%s	s-conca4.adb		s-conca4.ali
 Z system.img_int%s	s-imgint.ads		s-imgint.ali
+Z system.random_numbers%s  s-rannum.adb		s-rannum.ali
 Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 Z system.soft_links%s	s-soflin.adb		s-soflin.ali
 Z system.tasking%s	s-taskin.adb		s-taskin.ali
 Z system.tasking.rendezvous%s  s-tasren.adb	s-tasren.ali
 Z system.tasking.stages%s  s-tassta.adb		s-tassta.ali
 
+U producent%s		producent.ads		897e2947 EE NE OO PK IL
+W ada%s			ada.ads			ada.ali
+W ada.numerics%s	a-numeri.ads		a-numeri.ali
+W ada.numerics.discrete_random%s
+Z ada.real_time%s	a-reatim.adb		a-reatim.ali
+W ada.strings%s		a-string.ads		a-string.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W bufor%s		bufor.adb		bufor.ali
+Z system%s		system.ads		system.ali
+Z system.parameters%s	s-parame.adb		s-parame.ali
+Z system.task_info%s	s-tasinf.adb		s-tasinf.ali
+Z system.tasking%s	s-taskin.adb		s-taskin.ali
+Z system.tasking.stages%s  s-tassta.adb		s-tassta.ali
+
 D ada.ads		20210520051132 76789da1 ada%s
+D a-calend.ads		20210520051128 474d9720 ada.calendar%s
+D a-caldel.ads		20210520051128 9f20b83d ada.calendar.delays%s
 D a-charac.ads		20210520051128 2d3ec45b ada.characters%s
 D a-chlat1.ads		20210520051128 66457d31 ada.characters.latin_1%s
 D a-except.ads		20210520051128 946f3014 ada.exceptions%s
 D a-finali.ads		20210520051128 bf4f806b ada.finalization%s
-D a-inteio.ads		20210520051128 f64b89a4 ada.integer_text_io%s
 D a-ioexce.ads		20210520051128 e4a01f64 ada.io_exceptions%s
 D a-numeri.ads		20210520051130 84bea7a3 ada.numerics%s
 D a-nudira.ads		20210520051130 5984dff3 ada.numerics.discrete_random%s
@@ -56,31 +71,35 @@ D a-strunb.ads		20210520051130 03325227 ada.strings.unbounded%s
 D a-stuten.ads		20210520051130 808c40ad ada.strings.utf_encoding%s
 D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
 D a-textio.ads		20210520051130 aef4d56d ada.text_io%s
-D a-tiinio.ads		20210520051130 390edddb ada.text_io.integer_io%s
 D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
 D bufor.ads		20220103182722 872e7a5c bufor%s
 D interfac.ads		20210520051132 edec285f interfaces%s
 D i-c.ads		20210520051132 d9beded9 interfaces.c%s
 D i-cstrin.ads		20210520051132 341d0ddf interfaces.c.strings%s
 D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
-D konsument.ads		20220103181508 c49e74d1 konsument%s
-D main.adb		20220103183134 5ab76373 main%b
 D producent.ads		20220103183026 fa120ba2 producent%s
+D producent.adb		20220103183046 d23c02f1 producent%b
 D system.ads		20210520051136 2ffa5114 system%s
 D s-atacco.ads		20210520051132 4c36d12f system.address_to_access_conversions%s
 D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
+D s-conca2.ads		20210520051132 02a0d7d0 system.concat_2%s
+D s-conca4.ads		20210520051132 7e642b20 system.concat_4%s
 D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
 D s-exctab.ads		20210520051132 54135002 system.exception_table%s
 D s-ficobl.ads		20210520051132 078245e4 system.file_control_block%s
 D s-finmas.ads		20210520051132 1ab4dba8 system.finalization_masters%s
 D s-finroo.ads		20210520051132 4ff27390 system.finalization_root%s
 D s-imagei.ads		20210520051134 0d3f86a7 system.image_i%s
+D s-imageu.ads		20210520051134 525c30c6 system.image_u%s
 D s-imgint.ads		20210520051134 bdb6f5ec system.img_int%s
+D s-imguns.ads		20210520051134 0e4da2ac system.img_uns%s
 D s-multip.ads		20210520051134 38ac9f73 system.multiprocessors%s
 D s-osinte.ads		20210520051128 97504df8 system.os_interface%s
 D s-parame.ads		20210520051134 4752c4cb system.parameters%s
 D s-putima.ads		20210520051134 4e095881 system.put_images%s
 D s-rannum.ads		20210520051134 c3978523 system.random_numbers%s
+D s-rannum.adb		20210520051134 2631917b system.random_numbers%b
+D s-ransee.ads		20210520051134 01a57b33 system.random_seed%s
 D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
 D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
 D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
@@ -100,50 +119,66 @@ D s-tasren.ads		20210520051128 a67a9949 system.tasking.rendezvous%s
 D s-tassta.ads		20210520051128 cca55c94 system.tasking.stages%s
 D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
 D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D s-valuns.ads		20210520051134 dac7b45d system.val_uns%s
+D s-valueu.ads		20210520051134 7b8fccf5 system.value_u%s
 D s-wchcon.ads		20210520051136 1b7d22d2 system.wch_con%s
 D s-win32.ads		20210520051136 15ac53fb system.win32%s
 D unchconv.ads		20210520051136 ca2f9e18 unchecked_conversion%s
 G a e
-G c Z b b [main standard 13 11 none]
-G r s producer [main standard 13 11 none] [producerVIP producent 8 4 none]
-G r s consumer [main standard 13 11 none] [consumerVIP konsument 13 4 none]
-G r q none [main standard 13 11 none] [producer producent 8 14 none]
-G r q none [main standard 13 11 none] [consumer konsument 13 14 none]
-G r r none [main standard 13 11 none] [start producent__producer 10 13 none]
-G r r none [main standard 13 11 none] [start konsument__consumer 15 13 none]
+G c Z s b [producer producent 8 14 none]
+G c Z s b [start producent__producer 10 13 none]
+G c Z s s [P3sIP producent 10 7 none]
+G c Z s s [producerVIP producent 8 4 none]
+G r r none [start producent__producer 10 13 none] [take bufor__buffer 17 13 none]
+G r r none [producer producent 8 14 none] [take bufor__buffer 17 13 none]
 X 1 ada.ads
-16K9*Ada 20e8 28|5r6 5r23 6r6 7r6 8r6 8r33
-X 6 a-inteio.ads
-18K13*Integer_Text_IO[20|46] 28|6w10
-X 8 a-numeri.ads
-16K13*Numerics 35e17 28|7r10
-X 9 a-nudira.ads
-44k22*Discrete_Random 81e33 28|7w19
-X 13 a-string.ads
-16K13*Strings 35e16 28|8r10 8r37
-X 16 a-strunb.ads
-83K21*Unbounded 765e26 28|8w18 8r45
-X 19 a-textio.ads
-58K13*Text_IO 725e16 28|5w10 5r27
+16K9*Ada 20e8 27|1r6 1r23 2r6 3r6 3r33 28|5r9
+X 9 a-numeri.ads
+16K13*Numerics 35e17 27|2r10 28|5r13
+X 10 a-nudira.ads
+44k22*Discrete_Random 81e33 27|2w19 28|5r22
+50R9 Generator<47|65R9> 28|6r28[4]
+52V13 Random{integer} 28|19s43[4]
+61U14 Reset<47|103p14> 28|12s28[4]
+X 11 a-nudira.adb
+53V16 Random[47|86]{integer} 48|402b13[28|4]
+65V16 Random[47|86]{integer} 48|402b13[28|4]
+X 14 a-string.ads
+16K13*Strings 35e16 27|3r10 3r37
+X 17 a-strunb.ads
+83K21*Unbounded 765e26 27|3w18 3r45
+117V13*To_String{string} 28|17s41 20s41
+X 20 a-textio.ads
+58K13*Text_IO 725e16 27|1w10 1r27
+506U14*Put_Line 28|17s7 20s10
 X 22 bufor.ads
-4K9*bufor 23e10 28|9w6 14r20 17r18
-5i4*Number_Of_Products{integer} 28|14r26 17r24
-X 27 konsument.ads
-6K9*konsument 18e14 28|10w6 15r20 15r55 20r18
-7i4*Number_Of_Consumers{integer} 28|15r30 20r28
-13T14*Consumer 17e16 28|15r65
-15Y13 Start 28|21s12
-X 28 main.adb
-13U11*Main 13b11 23l5 23t9
-14a4 P(29|8T14) 18r7
-15a4 K(27|13T14) 21r7
-17i8 I{integer} 18r9 18r18
-20i8 J{integer} 21r9 21r18
-X 29 producent.ads
-6K9*producent 28|11w6 14r50 29|12e14
-8T14*Producer 28|14r60 29|11e16
-10Y13 Start 28|18s12
-X 48 s-stausa.ads
+4K9*bufor 23e10 27|4w6 10r31 28|11r32 17r51 20r51 23r6
+6I12*Product_Type{integer} 27|10r37 28|11r38
+7a4*Product_Name(17|88R9) 28|17r57 20r57
+17Y13 Take 28|23s14
+22t4*B{15T14} 28|23r12
+X 23 interfac.ads
+79M9*Unsigned_32
+82M9*Unsigned_64
+X 27 producent.ads
+6K9*producent 12l5 12e14 28|1b14 27l5 27t14
+8T14*Producer 11l8 11e16 28|2b11 26l8 26t16
+10Y13 Start 10>19 10>51 28|11b14 16l11 16t16
+10i19 Product{22|6I12} 28|14r33
+10i51 Production_Time{integer} 28|15r24
+X 28 producent.adb
+3I15 Production_Time_Range{integer} 5r38
+4K15 Random_Production[10|44] 6r10 12r10 19r25
+6r7 G{10|50R9[4]} 12r34 19r50
+7i7 Product_Type_Number{integer} 14m10 17r70 20r70 23r19
+8i7 Product_Number{integer} 13m10 21r46 23r40 24m10 24r28
+9i7 Production{integer} 15m10
+11i20 Product{22|6I12}
+11i52 Production_Time{integer}
+X 47 s-rannum.ads
+77V13*Random{23|79M9} 48|224i21
+78V13*Random{23|82M9} 48|224i21
+X 53 s-stausa.ads
 208U14*Initialize 209i<c,__gnat_stack_usage_initialize>22
 273U14*Output_Results 277i<c,__gnat_stack_usage_output_results>22
 

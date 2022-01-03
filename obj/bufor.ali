@@ -21,7 +21,7 @@ RV NO_ELABORATION_CODE
 RV MAX_TASK_ENTRIES=2
 RV MAX_TASKS=1
 
-U bufor%b		bufor.adb		07d003f1 OO PK IL
+U bufor%b		bufor.adb		34d15b20 OO PK IL
 Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
 Z system%s		system.ads		system.ali
 Z system.concat_4%s	s-conca4.adb		s-conca4.ali
@@ -32,7 +32,7 @@ Z system.soft_links%s	s-soflin.adb		s-soflin.ali
 Z system.tasking.rendezvous%s  s-tasren.adb	s-tasren.ali
 Z system.tasking.stages%s  s-tassta.adb		s-tassta.ali
 
-U bufor%s		bufor.ads		2a25c590 EE OO PK IL
+U bufor%s		bufor.ads		2ae8fd16 EE OO PK IL
 W ada%s			ada.ads			ada.ali
 Z ada.exceptions%s	a-except.adb		a-except.ali
 Z ada.real_time%s	a-reatim.adb		a-reatim.ali
@@ -40,7 +40,6 @@ W ada.strings%s		a-string.ads		a-string.ali
 Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
 W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
-W producent%s		producent.adb		producent.ali
 Z system%s		system.ads		system.ali
 Z system.finalization_masters%s  s-finmas.adb	s-finmas.ali
 Z system.parameters%s	s-parame.adb		s-parame.ali
@@ -58,8 +57,6 @@ D a-chlat1.ads		20210520051128 66457d31 ada.characters.latin_1%s
 D a-except.ads		20210520051128 946f3014 ada.exceptions%s
 D a-finali.ads		20210520051128 bf4f806b ada.finalization%s
 D a-ioexce.ads		20210520051128 e4a01f64 ada.io_exceptions%s
-D a-numeri.ads		20210520051130 84bea7a3 ada.numerics%s
-D a-nudira.ads		20210520051130 5984dff3 ada.numerics.discrete_random%s
 D a-reatim.ads		20210520051128 0240fc73 ada.real_time%s
 D a-stream.ads		20210520051130 119b8fb3 ada.streams%s
 D a-string.ads		20210520051130 90ac6797 ada.strings%s
@@ -70,13 +67,12 @@ D a-stuten.ads		20210520051130 808c40ad ada.strings.utf_encoding%s
 D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
 D a-textio.ads		20210520051130 aef4d56d ada.text_io%s
 D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
-D bufor.ads		20220103180222 9a4f09b3 bufor%s
-D bufor.adb		20220103174200 9d9f0a42 bufor%b
+D bufor.ads		20220103182722 872e7a5c bufor%s
+D bufor.adb		20220103182728 b3ff217c bufor%b
 D interfac.ads		20210520051132 edec285f interfaces%s
 D i-c.ads		20210520051132 d9beded9 interfaces.c%s
 D i-cstrin.ads		20210520051132 341d0ddf interfaces.c.strings%s
 D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
-D producent.ads		20220103180226 1dac4b69 producent%s
 D system.ads		20210520051136 2ffa5114 system%s
 D s-atacco.ads		20210520051132 4c36d12f system.address_to_access_conversions%s
 D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
@@ -94,7 +90,6 @@ D s-multip.ads		20210520051134 38ac9f73 system.multiprocessors%s
 D s-osinte.ads		20210520051128 97504df8 system.os_interface%s
 D s-parame.ads		20210520051134 4752c4cb system.parameters%s
 D s-putima.ads		20210520051134 4e095881 system.put_images%s
-D s-rannum.ads		20210520051134 c3978523 system.random_numbers%s
 D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
 D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
 D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
@@ -119,42 +114,50 @@ D s-wchcon.ads		20210520051136 1b7d22d2 system.wch_con%s
 D s-win32.ads		20210520051136 15ac53fb system.win32%s
 D unchconv.ads		20210520051136 ca2f9e18 unchecked_conversion%s
 G a e
-G c Z s s [Tassembly_nameBDI bufor 7 4 none]
-G c Z s s [Tassembly_nameBDA bufor 7 4 none]
-G c Z s s [Tassembly_nameBDF bufor 7 4 none]
-G c Z s b [buffer bufor 11 14 none]
-G c Z s b [take bufor__buffer 13 13 none]
-G c Z s b [deliver bufor__buffer 15 13 none]
-G c Z s s [bufferVIP bufor 11 4 none]
-G c Z s s [P83sIP bufor 13 7 none]
-G c Z s s [P87sIP bufor 15 7 none]
+G c Z s s [Tproduct_nameBDI bufor 7 4 none]
+G c Z s s [Tproduct_nameBDA bufor 7 4 none]
+G c Z s s [Tproduct_nameBDF bufor 7 4 none]
+G c Z s s [Tassembly_nameBDI bufor 11 4 none]
+G c Z s s [Tassembly_nameBDA bufor 11 4 none]
+G c Z s s [Tassembly_nameBDF bufor 11 4 none]
+G c Z s b [buffer bufor 15 14 none]
+G c Z s b [take bufor__buffer 17 13 none]
+G c Z s b [deliver bufor__buffer 19 13 none]
+G c Z s s [bufferVIP bufor 15 4 none]
+G c Z s s [P181sIP bufor 17 7 none]
+G c Z s s [P185sIP bufor 19 7 none]
 X 1 ada.ads
-16K9*Ada 20e8 19|1r6 1r23 2r6 2r33
-X 11 a-string.ads
-16K13*Strings 35e16 19|2r10 2r37
-X 14 a-strunb.ads
-83K21*Unbounded 765e26 19|2w18 2r45
-88R9*Unbounded_String<5|43R9> 744e15 19|7r59
-104V13*To_Unbounded_String{88R9} 19|8s10 8s52 8s103
-117V13*To_String{string} 20|83s26 93s46 98s42 106s20 115s13
-X 17 a-textio.ads
-58K13*Text_IO 725e16 19|1w10 1r27
-506U14*Put_Line 20|82s13 88s7 93s15 98s11 105s16 114s13
-X 19 bufor.ads
-4K9*bufor 7r35 18l5 18e10 20|1b14 122l5 122t10
-5i4*Number_Of_Assemblies{integer} 6r48
-6I12*Assembly_Type{integer} 7r41 15r34 20|7r31 12r30 20r22 69r38 103r38
-7a4*Assembly_Name(14|88R9) 20|106r30 115r23
-11T14*Buffer 16l8 16e14 17r7 20|2b14 121l8 121t14
-13Y13 Take 13>18 13>54 20|91b17 101l14 101t18
-13i18 Product{25|7I12} 20|92r26 93r79 95r23 95r43 98r75
-13i54 Number{integer} 20|94r31 99r35
-15Y13 Deliver 15>21 15>49 20|103b17 118l14 118t21
-15i21 Assembly{6I12} 20|104r28 106r44 107r41 109r63 110r63 112r32 112r61
+16K9*Ada 20e8 17|1r6 1r23 2r6 2r33
+X 9 a-string.ads
+16K13*Strings 35e16 17|2r10 2r37
+X 12 a-strunb.ads
+83K21*Unbounded 765e26 17|2w18 2r45
+88R9*Unbounded_String<5|43R9> 744e15 17|7r51 11r59
+104V13*To_Unbounded_String{88R9} 17|8s10 8s38 8s69 8s98 8s130 12s10 12s52
+. 12s103
+117V13*To_String{string} 18|83s26 93s46 98s42 106s20 115s13
+X 15 a-textio.ads
+58K13*Text_IO 725e16 17|1w10 1r27
+506U14*Put_Line 18|82s13 88s7 93s15 98s11 105s16 114s13
+X 17 bufor.ads
+4K9*bufor 11r35 23l5 23e10 18|1b14 122l5 122t10
+5i4*Number_Of_Products{integer} 6r47
+6I12*Product_Type{integer} 7r34 17r30 18|4r35 7r46 11r35 18r19 28r36 31r25
+. 42r19 56r19 71r19 81r19 91r34 108r25
+7a4*Product_Name(12|88R9) 18|83r36 93r56 98r52
+9i4*Number_Of_Assemblies{integer} 10r48
+10I12*Assembly_Type{integer} 11r41 19r34 18|7r31 12r30 20r22 69r38 103r38
+11a4*Assembly_Name(12|88R9) 18|106r30 115r23
+15T14*Buffer 20l8 20e14 22r7 18|2b14 121l8 121t14
+17Y13 Take 17>18 17>44 18|91b17 101l14 101t18
+17i18 Product{6I12} 18|92r26 93r69 95r23 95r43 98r65
+17i44 Number{integer} 18|94r31 99r35
+19Y13 Deliver 19>21 19>49 18|103b17 118l14 118t21
+19i21 Assembly{10I12} 18|104r28 106r44 107r41 109r63 110r63 112r32 112r61
 . 115r37
-15a49 Consumer_Name_String{string} 20|105r25 116r13
-17t4*B{11T14}
-X 20 bufor.adb
+19a49 Consumer_Name_String{string} 18|105r25 116r13
+22t4*B{15T14}
+X 18 bufor.adb
 3i7 Storage_Capacity{integer} 36r27 40r18
 4A12 Storage_type(integer)<integer> 5r16
 5a7 Storage{4A12} 43r16 51r60 57r68 72r16 82r59 95m15 95r35 109m19 109r33
@@ -163,41 +166,35 @@ X 20 bufor.adb
 12a7 Assembly_Number(integer) 107r25 112m16 112r45
 14i7 In_Storage{integer} 36r13 40r37 96m15 96r29 110m19 110r33
 16U17 Setup_Variables 16b17 26l11 26t26 89s7
-18i14 W{25|7I12} 19r34 21r39 21r65 22r40 22r66
-20i17 Z{19|6I12} 21r36 22r63
+18i14 W{17|6I12} 19r34 21r39 21r65 22r40 22r66
+20i17 Z{17|10I12} 21r36 22r63
 28V16 Can_Accept{boolean} 28b16 28>27 67l11 67t21 92s15
-28i27 Product{25|7I12} 51r49 51r68
+28i27 Product{17|6I12} 51r49 51r68
 29i10 Free{integer} 40m10 60r13
 31a10 Lacking(integer) 57m13 58r44
 33i10 Lacking_room{integer} 55m10 58m13 58r29 60r21
 34b10 MP{boolean} 41m10 44m16 47r13
-42i14 W{25|7I12} 43r24 43r50
-56i14 W{25|7I12} 57r21 57r63 57r76 58r52
+42i14 W{17|6I12} 43r24 43r50
+56i14 W{17|6I12} 57r21 57r63 57r76 58r52
 69V16 Can_Deliver{boolean} 69b16 69>28 77l11 77t22 104s16
-69i28 Assembly{19|6I12} 72r46
-71i14 W{25|7I12} 72r24 72r56
+69i28 Assembly{17|10I12} 72r46
+71i14 W{17|6I12} 72r24 72r56
 79U17 Storage_Contents 79b17 85l11 85t27 102s10 119s10
-81i14 W{25|7I12} 82r67 83r59
-91i22 Product{25|7I12}
-91i58 Number{integer}
-103i25 Assembly{19|6I12}
+81i14 W{17|6I12} 82r67 83r49
+91i22 Product{17|6I12}
+91i48 Number{integer}
+103i25 Assembly{17|10I12}
 103a53 Consumer_Name_String{string}
-108i20 W{25|7I12} 109r27 109r41 109r73 110r73
-X 25 producent.ads
-5K9*producent 19|3w6 13r30 20|4r35 7r46 11r35 18r19 28r36 31r25 42r19 56r19
-. 71r19 81r19 83r36 91r34 93r56 98r52 108r25 25|16e14
-7I12*Product_Type{integer} 19|13r40 20|4r45 7r56 11r45 18r29 28r46 31r35
-. 42r29 56r29 71r29 81r29 91r44 108r35
-8a4*Product_Name(14|88R9) 20|83r46 93r66 98r62
-X 26 system.ads
+108i20 W{17|6I12} 109r27 109r41 109r73 110r73
+X 23 system.ads
 67M9*Address
-X 38 s-memory.ads
-53V13*Alloc{26|67M9} 103i<c,__gnat_malloc>22
+X 35 s-memory.ads
+53V13*Alloc{23|67M9} 103i<c,__gnat_malloc>22
 68U14*Free 104i<c,__gnat_free>22
-76V13*Realloc{26|67M9} 105i<c,__gnat_realloc>22
-X 47 s-stausa.ads
+76V13*Realloc{23|67M9} 105i<c,__gnat_realloc>22
+X 43 s-stausa.ads
 208U14*Initialize 209i<c,__gnat_stack_usage_initialize>22
 273U14*Output_Results 277i<c,__gnat_stack_usage_output_results>22
-X 49 s-stalib.adb
+X 45 s-stalib.adb
 89U14 Break_Start 90i<c,__gnat_break_start>22
 

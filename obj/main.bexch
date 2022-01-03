@@ -1,0 +1,25 @@
+[GENERATED OBJECT FILE]
+b__main.o
+[PROJECT FILES]
+C:\workspaces\ada\default.gpr
+20220103171540 0719c510b4e595d27e5c0d17bcd5f673
+[BOUND OBJECT FILES]
+C:\workspaces\ada\obj\bufor.o
+C:\workspaces\ada\obj\konsument.o
+C:\workspaces\ada\obj\producent.o
+C:\workspaces\ada\obj\main.o
+[GENERATED SOURCE FILES]
+b__main.ads
+b__main.adb
+b__main.ali
+[RESULTING OPTIONS]
+-LC:\workspaces\ada\obj\
+-LC:\workspaces\ada\obj\
+-LD:/gnat/2021/lib/gcc/x86_64-w64-mingw32/10.3.1/adalib/
+-static
+-static-libgcc
+D:/gnat/2021/lib/gcc/x86_64-w64-mingw32/10.3.1/adalib/libgnarl.a
+D:/gnat/2021/lib/gcc/x86_64-w64-mingw32/10.3.1/adalib/libgnat.a
+-Xlinker
+--stack=0x200000,0x1000
+-mthreads

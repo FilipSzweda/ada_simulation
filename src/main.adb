@@ -11,13 +11,10 @@ with konsument;
 with producent;
 
 procedure Main is
-   type My_Str is new String(1 ..256);
-   
-   P: array ( 1 .. producent.Number_Of_Products ) of producent.Producer;
+   P: array ( 1 .. bufor.Number_Of_Products ) of producent.Producer;
    K: array ( 1 .. konsument.Number_Of_Consumers ) of konsument.Consumer;
-
 begin
-   for I in 1 .. producent.Number_Of_Products loop
+   for I in 1 .. bufor.Number_Of_Products loop
       P(I).Start(I, 10);
    end loop;
    for J in 1 .. konsument.Number_Of_Consumers loop

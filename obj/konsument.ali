@@ -11,6 +11,7 @@ RV NO_EXCEPTIONS
 RV NO_FIXED_POINT
 RV NO_IO
 RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
 RV NO_RELATIVE_DELAY
 RV NO_SELECT_STATEMENTS
 RV NO_STANDARD_STORAGE_POOLS
@@ -21,19 +22,21 @@ RV NO_IMPLEMENTATION_PRAGMAS
 RV NO_ELABORATION_CODE
 RV MAX_TASK_ENTRIES=1
 
-U konsument%b		konsument.adb		d5d180d0 OO PK IL
+U konsument%b		konsument.adb		f2cb0106 OO PK IL
 Z ada.calendar.delays%s	a-caldel.adb		a-caldel.ali
 W ada.numerics%s	a-numeri.ads		a-numeri.ali
 Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
 W system%s		system.ads		system.ali
 Z system.concat_2%s	s-conca2.adb		s-conca2.ali
+Z system.concat_4%s	s-conca4.adb		s-conca4.ali
 Z system.random_numbers%s  s-rannum.adb		s-rannum.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 Z system.soft_links%s	s-soflin.adb		s-soflin.ali
 Z system.tasking%s	s-taskin.adb		s-taskin.ali
 Z system.tasking.rendezvous%s  s-tasren.adb	s-tasren.ali
 Z system.tasking.stages%s  s-tassta.adb		s-tassta.ali
 
-U konsument%s		konsument.ads		aa9325db EE NE OO PK IL
+U konsument%s		konsument.ads		b7f25634 EE NE OO PK IL
 W ada%s			ada.ads			ada.ali
 W ada.numerics%s	a-numeri.ads		a-numeri.ali
 W ada.numerics.discrete_random%s
@@ -71,18 +74,18 @@ D a-stuten.ads		20210520051130 808c40ad ada.strings.utf_encoding%s
 D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
 D a-textio.ads		20210520051130 aef4d56d ada.text_io%s
 D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
-D bufor.ads		20220103180222 9a4f09b3 bufor%s
+D bufor.ads		20220103182722 872e7a5c bufor%s
 D interfac.ads		20210520051132 edec285f interfaces%s
 D i-c.ads		20210520051132 d9beded9 interfaces.c%s
 D i-cstrin.ads		20210520051132 341d0ddf interfaces.c.strings%s
 D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
-D konsument.ads		20220103175956 c49e74d1 konsument%s
-D konsument.adb		20220103180302 114ff401 konsument%b
-D producent.ads		20220103180226 1dac4b69 producent%s
+D konsument.ads		20220103181508 c49e74d1 konsument%s
+D konsument.adb		20220103183952 365575d7 konsument%b
 D system.ads		20210520051136 2ffa5114 system%s
 D s-atacco.ads		20210520051132 4c36d12f system.address_to_access_conversions%s
 D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
 D s-conca2.ads		20210520051132 02a0d7d0 system.concat_2%s
+D s-conca4.ads		20210520051132 7e642b20 system.concat_4%s
 D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
 D s-exctab.ads		20210520051132 54135002 system.exception_table%s
 D s-ficobl.ads		20210520051132 078245e4 system.file_control_block%s
@@ -122,66 +125,68 @@ D s-wchcon.ads		20210520051136 1b7d22d2 system.wch_con%s
 D s-win32.ads		20210520051136 15ac53fb system.win32%s
 D unchconv.ads		20210520051136 ca2f9e18 unchecked_conversion%s
 G a e
-G c Z s s [random konsument__random_assembly 52 13 8_4]
-G c Z s s [random konsument__random_assembly 54 13 8_4]
-G c Z s s [reset konsument__random_assembly 60 14 8_4]
-G c Z s s [reset konsument__random_assembly 61 14 8_4]
-G c Z s s [save konsument__random_assembly 67 14 8_4]
-G c Z s s [reset konsument__random_assembly 68 14 8_4]
-G c Z s s [image konsument__random_assembly 72 13 8_4]
-G c Z s s [value konsument__random_assembly 73 13 8_4]
-G c Z s b [consumer konsument 12 14 none]
-G c Z s b [start konsument__consumer 14 13 none]
-G c Z s s [P6sIP konsument 14 7 none]
-G c Z s s [consumerVIP konsument 12 4 none]
-G r r none [start konsument__consumer 14 13 none] [deliver bufor__buffer 15 13 none]
-G r r none [consumer konsument 12 14 none] [deliver bufor__buffer 15 13 none]
+G c Z s s [random konsument__random_assembly 52 13 9_4]
+G c Z s s [random konsument__random_assembly 54 13 9_4]
+G c Z s s [reset konsument__random_assembly 60 14 9_4]
+G c Z s s [reset konsument__random_assembly 61 14 9_4]
+G c Z s s [save konsument__random_assembly 67 14 9_4]
+G c Z s s [reset konsument__random_assembly 68 14 9_4]
+G c Z s s [image konsument__random_assembly 72 13 9_4]
+G c Z s s [value konsument__random_assembly 73 13 9_4]
+G c Z s b [consumer konsument 13 14 none]
+G c Z s b [start konsument__consumer 15 13 none]
+G c Z s s [P6sIP konsument 15 7 none]
+G c Z s s [consumerVIP konsument 13 4 none]
+G r r none [start konsument__consumer 15 13 none] [deliver bufor__buffer 19 13 none]
+G r r none [consumer konsument 13 14 none] [deliver bufor__buffer 19 13 none]
 X 1 ada.ads
-16K9*Ada 20e8 27|1r6 1r23 2r6 3r6 3r33 9r6 28|5r9
+16K9*Ada 20e8 27|1r6 1r23 2r6 3r6 3r33 10r6 28|5r9
 X 9 a-numeri.ads
-16K13*Numerics 35e17 27|2r10 9r10 28|5r13
+16K13*Numerics 35e17 27|2r10 10r10 28|5r13
 X 10 a-nudira.ads
-44k22*Discrete_Random 81e33 27|2w19 9r19 28|5r22
-50R9 Generator<45|65R9> 28|6r29[4] 7r27[27|8]
-52V13 Random{integer} 28|24s44[4] 25s43[27|8] 30s41[27|8]
-61U14 Reset<45|103p14> 28|17s29[4] 18s26[27|8]
+44k22*Discrete_Random 81e33 27|2w19 10r19 28|5r22
+50R9 Generator<45|65R9> 28|6r29[4] 7r27[27|9]
+52V13 Random{integer} 28|24s44[4] 25s43[27|9] 30s41[27|9]
+61U14 Reset<45|103p14> 28|17s29[4] 18s26[27|9]
 X 11 a-nudira.adb
 53V16 Random[45|86]{integer} 46|402b13[28|4]
-65V16 Random[45|86]{integer} 46|402b13[27|8]
+65V16 Random[45|86]{integer} 46|402b13[27|9]
 X 14 a-string.ads
 16K13*Strings 35e16 27|3r10 3r37
 X 17 a-strunb.ads
 83K21*Unbounded 765e26 27|3w18 3r45
+117V13*To_String{string} 28|32s19
 X 20 a-textio.ads
 58K13*Text_IO 725e16 27|1w10 1r27
-506U14*Put_Line 28|22s7
+506U14*Put_Line 28|22s7 31s8
 X 22 bufor.ads
-4K9*bufor 18e10 27|4w6 9r35 28|28r8 33r8
-6I12*Assembly_Type{integer} 27|9r41
-15Y13 Deliver 28|28s16 33s16
-17t4*B{11T14} 28|28r14 33r14
+4K9*bufor 23e10 27|4w6 10r35 28|28r8 32r29 33r8
+10I12*Assembly_Type{integer} 27|10r41
+11a4*Assembly_Name(17|88R9) 28|32r35
+19Y13 Deliver 28|28s16 33s16
+22t4*B{15T14} 28|28r14 33r14
 X 23 interfac.ads
 79M9*Unsigned_32
 82M9*Unsigned_64
 X 27 konsument.ads
-5K9*konsument 17l5 17e14 28|1b14 37l5 37t14
-6i4*Number_Of_Consumers{integer} 7r48 28|11r43
-7I12*Consumer_Type{integer} 14r39 28|8r20 15r40
-8K12*Random_Assembly[10|44] 28|7r11 18r10 25r27 30r25
-12T14*Consumer 16l8 16e16 28|2b11 36l8 36t16
-14Y13 Start 14>19 15>21 28|15b14 21l11 21t16
-14i19 Consumer_Number{7I12} 28|19r25
-15i21 Consumption_Time{integer} 28|20r25
+6K9*konsument 18l5 18e14 28|1b14 37l5 37t14
+7i4*Number_Of_Consumers{integer} 8r48 28|11r43
+8I12*Consumer_Type{integer} 15r39 28|8r20 15r40
+9K12*Random_Assembly[10|44] 28|7r11 18r10 25r27 30r25
+13T14*Consumer 17l8 17e16 28|2b11 36l8 36t16
+15Y13 Start 15>19 16>21 28|15b14 21l11 21t16
+15i19 Consumer_Number{8I12} 28|19r25
+16i21 Consumption_Time{integer} 28|20r25
 X 28 konsument.adb
 3I15 Consumption_Time_Range{integer} 5r38
 4K15 Random_Consumption[10|44] 6r10 17r10 24r25
 6r7 G{10|50R9[4]} 17r35 24r51
-7r7 G2{10|50R9[27|8]} 18r32 25r50 30r48
-8i7 Consumer_Nb{27|7I12} 19m10 22r52 28r53 33r53
+7r7 G2{10|50R9[27|9]} 18r32 25r50 30r48
+8i7 Consumer_Nb{27|8I12} 19m10 22r52 28r53 31r31 33r53
 9i7 Consumption{integer} 20m10
-10i7 Assembly_Type{integer} 25m10 28r24 30m8 33r24
-11a7 Consumer_Name(string) 22r38 28r39 33r39
-15i20 Consumer_Number{27|7I12}
+10i7 Assembly_Type{integer} 25m10 28r24 30m8 32r49 33r24
+11a7 Consumer_Name(string) 22r38 28r39 31r17 33r39
+15i20 Consumer_Number{27|8I12}
 16i22 Consumption_Time{integer}
 X 45 s-rannum.ads
 77V13*Random{23|79M9} 46|224i21

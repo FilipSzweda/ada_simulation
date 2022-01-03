@@ -8,16 +8,16 @@ task body Producer is
       Product_Number: Integer;
       Production: Integer;
    begin
-      accept Start(Product: in Product_Type; Production_Time: in Integer) do
+      accept Start(Product: in bufor.Product_Type; Production_Time: in Integer) do
 	 Random_Production.Reset(G);	--  start random number generator
 	 Product_Number := 1;
 	 Product_Type_Number := Product;
 	 Production := Production_Time;
       end Start;
-      Put_Line("Started producer of " & To_String(Product_Name(Product_Type_Number)));
+      Put_Line("Started producer of " & To_String(bufor.Product_Name(Product_Type_Number)));
       loop
 	 delay Duration(Random_Production.Random(G)); --  symuluj produkcje
-	 Put_Line("Produced product " & To_String(Product_Name(Product_Type_Number))
+	 Put_Line("Produced product " & To_String(bufor.Product_Name(Product_Type_Number))
 		    & " n."  & Integer'Image(Product_Number));
 	 -- Accept for storage
      bufor.B.Take(Product_Type_Number, Product_Number);
