@@ -20,7 +20,7 @@ task body Producer is
 	 Put_Line("Produced product " & To_String(Product_Name(Product_Type_Number))
 		    & " n."  & Integer'Image(Product_Number));
 	 -- Accept for storage
-     B.Take(Product_Type_Number, Product_Number);
+     bufor.B.Take(Product_Type_Number, Product_Number);
 	 Product_Number := Product_Number + 1;
       end loop;
    end Producer;

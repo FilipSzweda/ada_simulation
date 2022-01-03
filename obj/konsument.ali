@@ -1,0 +1,192 @@
+V "GNAT Lib v2021"
+A -gnatA
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_DELAY
+RV NO_EXCEPTION_HANDLERS
+RV NO_EXCEPTIONS
+RV NO_FIXED_POINT
+RV NO_IO
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_RELATIVE_DELAY
+RV NO_SELECT_STATEMENTS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_TASKING
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+RV MAX_TASK_ENTRIES=1
+
+U konsument%b		konsument.adb		d5d180d0 OO PK IL
+Z ada.calendar.delays%s	a-caldel.adb		a-caldel.ali
+W ada.numerics%s	a-numeri.ads		a-numeri.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W system%s		system.ads		system.ali
+Z system.concat_2%s	s-conca2.adb		s-conca2.ali
+Z system.random_numbers%s  s-rannum.adb		s-rannum.ali
+Z system.soft_links%s	s-soflin.adb		s-soflin.ali
+Z system.tasking%s	s-taskin.adb		s-taskin.ali
+Z system.tasking.rendezvous%s  s-tasren.adb	s-tasren.ali
+Z system.tasking.stages%s  s-tassta.adb		s-tassta.ali
+
+U konsument%s		konsument.ads		aa9325db EE NE OO PK IL
+W ada%s			ada.ads			ada.ali
+W ada.numerics%s	a-numeri.ads		a-numeri.ali
+W ada.numerics.discrete_random%s
+Z ada.real_time%s	a-reatim.adb		a-reatim.ali
+W ada.strings%s		a-string.ads		a-string.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.strings.unbounded%s  a-strunb.adb		a-strunb.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W bufor%s		bufor.adb		bufor.ali
+W system%s		system.ads		system.ali
+Z system.parameters%s	s-parame.adb		s-parame.ali
+Z system.random_numbers%s  s-rannum.adb		s-rannum.ali
+Z system.task_info%s	s-tasinf.adb		s-tasinf.ali
+Z system.tasking%s	s-taskin.adb		s-taskin.ali
+Z system.tasking.stages%s  s-tassta.adb		s-tassta.ali
+
+D ada.ads		20210520051132 76789da1 ada%s
+D a-calend.ads		20210520051128 474d9720 ada.calendar%s
+D a-caldel.ads		20210520051128 9f20b83d ada.calendar.delays%s
+D a-charac.ads		20210520051128 2d3ec45b ada.characters%s
+D a-chlat1.ads		20210520051128 66457d31 ada.characters.latin_1%s
+D a-except.ads		20210520051128 946f3014 ada.exceptions%s
+D a-finali.ads		20210520051128 bf4f806b ada.finalization%s
+D a-ioexce.ads		20210520051128 e4a01f64 ada.io_exceptions%s
+D a-numeri.ads		20210520051130 84bea7a3 ada.numerics%s
+D a-nudira.ads		20210520051130 5984dff3 ada.numerics.discrete_random%s
+D a-nudira.adb		20210520051130 0bfd6ec4 ada.numerics.discrete_random%b
+D a-reatim.ads		20210520051128 0240fc73 ada.real_time%s
+D a-stream.ads		20210520051130 119b8fb3 ada.streams%s
+D a-string.ads		20210520051130 90ac6797 ada.strings%s
+D a-strmap.ads		20210520051130 5a88892a ada.strings.maps%s
+D a-sttebu.ads		20210520051130 18209c64 ada.strings.text_buffers%s
+D a-strunb.ads		20210520051130 03325227 ada.strings.unbounded%s
+D a-stuten.ads		20210520051130 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
+D a-textio.ads		20210520051130 aef4d56d ada.text_io%s
+D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
+D bufor.ads		20220103180222 9a4f09b3 bufor%s
+D interfac.ads		20210520051132 edec285f interfaces%s
+D i-c.ads		20210520051132 d9beded9 interfaces.c%s
+D i-cstrin.ads		20210520051132 341d0ddf interfaces.c.strings%s
+D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
+D konsument.ads		20220103175956 c49e74d1 konsument%s
+D konsument.adb		20220103180302 114ff401 konsument%b
+D producent.ads		20220103180226 1dac4b69 producent%s
+D system.ads		20210520051136 2ffa5114 system%s
+D s-atacco.ads		20210520051132 4c36d12f system.address_to_access_conversions%s
+D s-atocou.ads		20210520051132 b45c2d8d system.atomic_counters%s
+D s-conca2.ads		20210520051132 02a0d7d0 system.concat_2%s
+D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
+D s-exctab.ads		20210520051132 54135002 system.exception_table%s
+D s-ficobl.ads		20210520051132 078245e4 system.file_control_block%s
+D s-finmas.ads		20210520051132 1ab4dba8 system.finalization_masters%s
+D s-finroo.ads		20210520051132 4ff27390 system.finalization_root%s
+D s-imageu.ads		20210520051134 525c30c6 system.image_u%s
+D s-imguns.ads		20210520051134 0e4da2ac system.img_uns%s
+D s-multip.ads		20210520051134 38ac9f73 system.multiprocessors%s
+D s-osinte.ads		20210520051128 97504df8 system.os_interface%s
+D s-parame.ads		20210520051134 4752c4cb system.parameters%s
+D s-putima.ads		20210520051134 4e095881 system.put_images%s
+D s-rannum.ads		20210520051134 c3978523 system.random_numbers%s
+D s-rannum.adb		20210520051134 2631917b system.random_numbers%b
+D s-ransee.ads		20210520051134 01a57b33 system.random_seed%s
+D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
+D s-soflin.ads		20210520051134 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051134 a37c21ec system.stack_checking%s
+D s-stausa.ads		20210520051134 017a0a05 system.stack_usage%s
+D s-stalib.ads		20210520051134 472fbca8 system.standard_library%s
+D s-stoele.ads		20210520051134 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051134 ed88f8fb system.storage_elements%b
+D s-stopoo.ads		20210520051134 e9fa2dd8 system.storage_pools%s
+D s-stratt.ads		20210520051134 7bdda3fa system.stream_attributes%s
+D s-tasinf.ads		20210520051128 601f6b72 system.task_info%s
+D s-taspri.ads		20210520051128 a1350802 system.task_primitives%s
+D s-taprop.ads		20210520051128 6eefbe12 system.task_primitives.operations%s
+D s-taskin.ads		20210520051128 88fba9ad system.tasking%s
+D s-taprob.ads		20210520051128 acd6094d system.tasking.protected_objects%s
+D s-tpoben.ads		20210520051128 60ad3dae system.tasking.protected_objects.entries%s
+D s-tasren.ads		20210520051128 a67a9949 system.tasking.rendezvous%s
+D s-tassta.ads		20210520051128 cca55c94 system.tasking.stages%s
+D s-traent.ads		20210520051134 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051134 2b077493 system.unsigned_types%s
+D s-valuns.ads		20210520051134 dac7b45d system.val_uns%s
+D s-valueu.ads		20210520051134 7b8fccf5 system.value_u%s
+D s-wchcon.ads		20210520051136 1b7d22d2 system.wch_con%s
+D s-win32.ads		20210520051136 15ac53fb system.win32%s
+D unchconv.ads		20210520051136 ca2f9e18 unchecked_conversion%s
+G a e
+G c Z s s [random konsument__random_assembly 52 13 8_4]
+G c Z s s [random konsument__random_assembly 54 13 8_4]
+G c Z s s [reset konsument__random_assembly 60 14 8_4]
+G c Z s s [reset konsument__random_assembly 61 14 8_4]
+G c Z s s [save konsument__random_assembly 67 14 8_4]
+G c Z s s [reset konsument__random_assembly 68 14 8_4]
+G c Z s s [image konsument__random_assembly 72 13 8_4]
+G c Z s s [value konsument__random_assembly 73 13 8_4]
+G c Z s b [consumer konsument 12 14 none]
+G c Z s b [start konsument__consumer 14 13 none]
+G c Z s s [P6sIP konsument 14 7 none]
+G c Z s s [consumerVIP konsument 12 4 none]
+G r r none [start konsument__consumer 14 13 none] [deliver bufor__buffer 15 13 none]
+G r r none [consumer konsument 12 14 none] [deliver bufor__buffer 15 13 none]
+X 1 ada.ads
+16K9*Ada 20e8 27|1r6 1r23 2r6 3r6 3r33 9r6 28|5r9
+X 9 a-numeri.ads
+16K13*Numerics 35e17 27|2r10 9r10 28|5r13
+X 10 a-nudira.ads
+44k22*Discrete_Random 81e33 27|2w19 9r19 28|5r22
+50R9 Generator<45|65R9> 28|6r29[4] 7r27[27|8]
+52V13 Random{integer} 28|24s44[4] 25s43[27|8] 30s41[27|8]
+61U14 Reset<45|103p14> 28|17s29[4] 18s26[27|8]
+X 11 a-nudira.adb
+53V16 Random[45|86]{integer} 46|402b13[28|4]
+65V16 Random[45|86]{integer} 46|402b13[27|8]
+X 14 a-string.ads
+16K13*Strings 35e16 27|3r10 3r37
+X 17 a-strunb.ads
+83K21*Unbounded 765e26 27|3w18 3r45
+X 20 a-textio.ads
+58K13*Text_IO 725e16 27|1w10 1r27
+506U14*Put_Line 28|22s7
+X 22 bufor.ads
+4K9*bufor 18e10 27|4w6 9r35 28|28r8 33r8
+6I12*Assembly_Type{integer} 27|9r41
+15Y13 Deliver 28|28s16 33s16
+17t4*B{11T14} 28|28r14 33r14
+X 23 interfac.ads
+79M9*Unsigned_32
+82M9*Unsigned_64
+X 27 konsument.ads
+5K9*konsument 17l5 17e14 28|1b14 37l5 37t14
+6i4*Number_Of_Consumers{integer} 7r48 28|11r43
+7I12*Consumer_Type{integer} 14r39 28|8r20 15r40
+8K12*Random_Assembly[10|44] 28|7r11 18r10 25r27 30r25
+12T14*Consumer 16l8 16e16 28|2b11 36l8 36t16
+14Y13 Start 14>19 15>21 28|15b14 21l11 21t16
+14i19 Consumer_Number{7I12} 28|19r25
+15i21 Consumption_Time{integer} 28|20r25
+X 28 konsument.adb
+3I15 Consumption_Time_Range{integer} 5r38
+4K15 Random_Consumption[10|44] 6r10 17r10 24r25
+6r7 G{10|50R9[4]} 17r35 24r51
+7r7 G2{10|50R9[27|8]} 18r32 25r50 30r48
+8i7 Consumer_Nb{27|7I12} 19m10 22r52 28r53 33r53
+9i7 Consumption{integer} 20m10
+10i7 Assembly_Type{integer} 25m10 28r24 30m8 33r24
+11a7 Consumer_Name(string) 22r38 28r39 33r39
+15i20 Consumer_Number{27|7I12}
+16i22 Consumption_Time{integer}
+X 45 s-rannum.ads
+77V13*Random{23|79M9} 46|224i21
+78V13*Random{23|82M9} 46|224i21
+X 51 s-stausa.ads
+208U14*Initialize 209i<c,__gnat_stack_usage_initialize>22
+273U14*Output_Results 277i<c,__gnat_stack_usage_output_results>22
+

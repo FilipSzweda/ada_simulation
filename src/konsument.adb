@@ -25,12 +25,12 @@ task body Consumer is
 	 Assembly_Type := Random_Assembly.Random(G2);
     -- take an assembly for consumption
     select
-       B.Deliver(Assembly_Type, Consumer_Name(Consumer_Nb));
+       bufor.B.Deliver(Assembly_Type, Consumer_Name(Consumer_Nb));
      or delay 1.0;
        Assembly_Type := Random_Assembly.Random(G2);
-       Put_Line(Consumer_Name(Consumer_Nb) & " changed his mind, they want to order " &
-                  To_String(Assembly_Name(Assembly_Type)) & " now");
-       B.Deliver(Assembly_Type, Consumer_Name(Consumer_Nb));
+       --Put_Line(Consumer_Name(Consumer_Nb) & " changed his mind, they want to order " &
+                  --To_String(bufor.Assembly_Name(bufor.Assembly_Type)) & " now");
+       bufor.B.Deliver(Assembly_Type, Consumer_Name(Consumer_Nb));
     end select;
       end loop;
    end Consumer;

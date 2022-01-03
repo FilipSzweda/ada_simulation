@@ -1,3 +1,0 @@
-bufor.ads:5:30: error: "Product_Type" is undefined (more references follow)
-bufor.ads:7:34: error: "Assembly_Type" is undefined
-konsument.ads:5:39: error: "Consumer_Type" is undefined
